@@ -1,0 +1,56 @@
+<div class="back_container">
+    <div class="no_info">
+        <div class="no">No.{{no}}</div>
+        <div class="chapter">Chapter {{chapter_no}}-{{chapter_name}}</div>
+    </div>
+    <div class="main">
+        <div class="main_kanji">
+            <table cellpading='0' cellspacing='0'>
+                <tbody>
+                    <tr>
+                        <td class="text_center fixed_height" rowspan="1" style="height: 3rem;">
+                            <img src="colorized-kanji/{{kanji}}.svg" alt="" style="width:200px">
+                        </td>
+                        <td class="homonym fixed_height">{{homonym}}</td>
+                    </tr>
+                    <tr>
+                        <td class="text_center fixed_height">{{meaning}}</td>
+                        <td class="on_kun fixed_height">{{reading}}</td>
+                    </tr>
+                    <tr>
+                        <td class="text_center fixed_height">{{vn_cn}}</td>
+                        <td class="remember fixed_height">{{how_to_remember}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="main_table">
+            <div class="row bordered is_flex">
+                <div style="flex: 1.5 1 0;text-align: center;">
+                    <div class="header">
+                        Words
+                    </div>
+                    <div class="td">
+                        {{word}}
+                    </div>
+                </div>
+                <div style="flex: 3.5 1 0;" class="bl">
+                    <div class="header text_center">
+                        Sentences
+                    </div>
+                    <div class="td">
+                        {{sentence}}
+                    </div>
+                </div>
+                <div style="flex: 5 1 0;"  class="bl">
+                    <div class="header text_center">
+                        Practice
+                    </div>
+                    <div class="td">
+                        {{practive}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

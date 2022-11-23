@@ -1,0 +1,37 @@
+<div class="back_container">
+    <div class="no_info" >
+        <div class="no">No.{{no}}</div>
+        <div class="chapter">Chapter {{chapter_name}}-{{topic_name}}</div>
+    </div>
+    
+    <br>
+    <div class="main">
+        <div class="main_word">
+            {{word}}
+        </div>
+        <div class="main_table">
+            <div class="row bordered is_flex">
+                <div class="cell_title">
+                    Meaning:
+                </div>
+                <div class="cell_content">
+                    {{meaning}}
+                </div>
+            </div>
+            <div class="row bordered is_flex">
+                <div class="cell_title">
+                    Sentence:
+                </div>
+                <div class="cell_content">
+                    {{sentence}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div style="display: flex;align-items:center;justify-content:center;gap:1rem;">
+        <button><a href="https://www.weblio.jp/content/{{word}}"> Weblio</a></button>
+        <button><a href="https://mazii.net/vi-VN/search/word/javi/{{word}}">Mazzi</a></button>
+    </div>
+    
+</div>

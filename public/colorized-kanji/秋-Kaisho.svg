@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This file has been modified from the original version by the kanji_colorize.py
+script (available at http://github.com/cayennes/kanji-colorize) with these
+settings:
+    mode: spectrum
+    saturation: 0.95
+    value: 0.75
+    image_size: 327
+It remains under a Creative Commons-Attribution-Share Alike 3.0 License.
+
+The original SVG has the following copyright:
+
+Copyright (C) 2009/2010/2011 Ulrich Apel.
+This work is distributed under the conditions of the Creative Commons
+Attribution-Share Alike 3.0 Licence. This means you are free:
+* to Share - to copy, distribute and transmit the work
+* to Remix - to adapt the work
+
+Under the following conditions:
+* Attribution. You must attribute the work by stating your use of KanjiVG in
+  your own copyright header and linking to KanjiVG's website
+  (http://kanjivg.tagaini.net)
+* Share Alike. If you alter, transform, or build upon this work, you may
+  distribute the resulting work only under the same or similar license to this
+  one.
+
+See http://creativecommons.org/licenses/by-sa/3.0/ for more details.
+-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd" [
+<!ATTLIST g
+xmlns:kvg CDATA #FIXED "http://kanjivg.tagaini.net"
+kvg:element CDATA #IMPLIED
+kvg:variant CDATA #IMPLIED
+kvg:partial CDATA #IMPLIED
+kvg:original CDATA #IMPLIED
+kvg:part CDATA #IMPLIED
+kvg:number CDATA #IMPLIED
+kvg:tradForm CDATA #IMPLIED
+kvg:radicalForm CDATA #IMPLIED
+kvg:position CDATA #IMPLIED
+kvg:radical CDATA #IMPLIED
+kvg:phon CDATA #IMPLIED >
+<!ATTLIST path
+xmlns:kvg CDATA #FIXED "http://kanjivg.tagaini.net"
+kvg:type CDATA #IMPLIED >
+]>
+<svg xmlns="http://www.w3.org/2000/svg" width="327" height = "327" viewBox="0 0 327 327">
+<g id="kvg:StrokePaths_079cb-Kaisho" style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;" transform="scale(3.0,3.0)">
+<g id="kvg:079cb-Kaisho" kvg:element="秋">
+	<g id="kvg:079cb-Kaisho-g1" kvg:element="禾" kvg:position="left" kvg:radical="general">
+		<g id="kvg:079cb-Kaisho-g2" kvg:element="丿" kvg:position="top">
+			<path style="stroke: #bf0909;" id="kvg:079cb-Kaisho-s1" kvg:type="㇒" d="M40,15c0.07,0.4,0.15,1.02-0.14,1.58c-1.74,3.34-11.71,10.68-25.35,15.17"/>
+		</g>
+		<g id="kvg:079cb-Kaisho-g3" kvg:element="木" kvg:position="bottom">
+			<path style="stroke: #bf8209;" id="kvg:079cb-Kaisho-s2" kvg:type="㇐" d="M8.62,43.85c0.37,0.21,1.36,0.55,2.35,0.62c2.72,0.21,25.6-3.11,32.41-4.14c0.99-0.15,1.24-0.21,1.86,0"/>
+			<path style="stroke: #82bf09;" id="kvg:079cb-Kaisho-s3" kvg:type="㇑" d="M28.83,28.16c0.36,0.41,1.58,1.86,1.66,2.69c0.07,0.83-0.07,55.71-0.07,55.9c0,12.5-4.66,3.5-5.91,2.25"/>
+			<path style="stroke: #09bf09;" id="kvg:079cb-Kaisho-s4" kvg:type="㇒" d="M29.43,44.47C25.9,54.56,20,67,12,75.25"/>
+			<path style="stroke: #09bf82;" id="kvg:079cb-Kaisho-s5" kvg:type="㇔/㇏" d="M33.75,52.25c3.25,1.75,6,5.25,7.75,7.5"/>
+		</g>
+	</g>
+	<g id="kvg:079cb-Kaisho-g4" kvg:element="火" kvg:position="right">
+		<path style="stroke: #0982bf;" id="kvg:079cb-Kaisho-s6" kvg:type="㇔" d="M50.75,41.25c1.86,2.7,4.56,10.37,5.07,13.07"/>
+		<path style="stroke: #0909bf;" id="kvg:079cb-Kaisho-s7" kvg:type="㇒" d="M85.75,35c0.65,0.85,1.38,1.98,0.79,3.29C85.95,39.61,79.45,49.93,76.5,53"/>
+		<path style="stroke: #8209bf;" id="kvg:079cb-Kaisho-s8" kvg:type="㇒" d="M66.71,16.75c1.05,0.73,1.59,2.7,1.61,3.92C68.75,52,63.75,79.25,41.75,91.5"/>
+		<path style="stroke: #bf0982;" id="kvg:079cb-Kaisho-s9" kvg:type="㇏" d="M67.57,55.79C75.25,70.5,86,83,92.55,88.72c1.91,1.67,2.22,1.58,3.7,2.03"/>
+	</g>
+</g>
+</g>
+<g id="kvg:StrokeNumbers_079cb-Kaisho" style="font-size:8;fill:#808080" transform="scale(3.0,3.0)">
+	<text style="fill: #bf0909;" transform="matrix(1 0 0 1 39.75 10.63)">1</text>
+	<text style="fill: #bf8209;" transform="matrix(1 0 0 1 2.25 42.13)">2</text>
+	<text style="fill: #82bf09;" transform="matrix(1 0 0 1 36.75 33.13)">3</text>
+	<text style="fill: #09bf09;" transform="matrix(1 0 0 1 18.75 55.63)">4</text>
+	<text style="fill: #09bf82;" transform="matrix(1 0 0 1 39.75 52.63)">5</text>
+	<text style="fill: #0982bf;" transform="matrix(1 0 0 1 54.75 39.13)">6</text>
+	<text style="fill: #0909bf;" transform="matrix(1 0 0 1 90.75 33.13)">7</text>
+	<text style="fill: #8209bf;" transform="matrix(1 0 0 1 59.25 13.63)">8</text>
+	<text style="fill: #bf0982;" transform="matrix(1 0 0 1 77.25 64.63)">9</text>
+</g>
+</svg>

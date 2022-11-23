@@ -1,0 +1,130 @@
+.card {
+    font-family: arial;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid;
+    padding: 1px;
+
+}
+
+.back_container,
+.front_container {
+    background: #F5F5DC;
+    padding: 0.3rem;
+    height: 90vh;
+    page-break-before: always;
+    page-break-after: always;
+}
+
+.back_container .no_info,
+.front_container .no_info {
+    display: flex;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 300;
+    height: 10%;
+}
+
+.no{
+    width: 50%;
+}
+
+.chapter{
+    width: 50%;
+    text-align: right;
+}
+
+.front_container .main {
+    width: 100%;
+}
+
+.front_container .main .main_word {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2.5rem;
+    min-height: 450px;
+
+}
+
+.front_container .main .front_sentence {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+
+
+}
+
+.back_container .main {
+    width: 100%;
+
+}
+
+.back_container .main .main_table {
+    display: block;
+    padding: 0 0.5rem;
+}
+
+.back_container .main .main_word {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+
+}
+
+.row {
+    width: 100%;
+    padding: 0.3rem 0;
+    font-size: 1rem;
+
+}
+
+.bordered {
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+
+.is_flex {
+    display: flex;
+}
+
+/* table */
+.d_50 {
+    width: 50%;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.b_l {
+    border-left: 1px solid gray;
+}
+
+.cell_title {
+    display: flex;
+    padding-left: 2px;
+    font-weight: 800;
+}
+
+.cell_content {
+    padding-left: 3px;
+    text-align: left;
+}
+
+@media N2_Shin_Adv {
+    .back_container{
+        height: 100vh;
+        page-break-before: always;
+        page-break-after: always;
+    }
+}

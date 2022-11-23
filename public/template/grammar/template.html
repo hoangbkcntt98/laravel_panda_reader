@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="anki_grammar_template.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="back_container">
+        <div class="no_info">
+            <div class="no">No.{{no}}</div>
+        </div>
+        <div class="main">
+            <div class="main_grammar">
+                {{word}}
+            </div>
+            <div class = "main_table">
+                <div class = "row bordered is_flex" >
+                    <div class = "cell_title">Sentence:</div>
+                    <div class = "cell_content">{{sentence}}</div>
+                </div>
+                <div class = "row bordered is_flex" >
+                    <div class = "cell_title">Meaning:</div>
+                    <div class = "cell_content">{{meaning}}</div>
+                </div>
+                <div class = "row is_flex bordered">
+                    <div class = "d_50">
+                        <div class = "cell_title">Structure:</div>
+                        <div class = "cell_content">{{connection}}</div>
+                    </div>
+                    <div class = "d_50 b_l">
+                        <div class = "cell_title">Usage:</div>
+                        <div class = "cell_content">{{usage}}</div>
+                    </div>
+                </div>
+                <div class = "row is_flex bordered">
+                    <div class = "d_50">
+                        <div class = "cell_title">Attention:</div>
+                        <div class = "cell_content">{{warning}}</div>
+                    </div>
+                    <div class = "d_50 b_l">
+                        <div class = "cell_title">Related Grammars:</div>
+                        <div class = "cell_content">{{related_grammar}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
