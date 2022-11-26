@@ -20,7 +20,7 @@
         "KANJI_SHEET_ID": "12kWIq1HugC6crzjaKoVzANnLVyHGB65DawYolSZetXs",
         "DB_CONNECTION" : "pgsql",
         "DB_HOST" : "postgres://xhumirxs:l63Mk3cUdPO2tvrzEhOpGAqx6t5pF7zq@peanut.db.elephantsql.com/xhumirxs",
-        "DB_PORT" :3306,
+        "DB_PORT" : "3306",
         "DB_DATABASE" : "xhumirxs",
         "DB_USERNAME" : "xhumirxs",
         "DB_PASSWORD" : "l63Mk3cUdPO2tvrzEhOpGAqx6t5pF7zq",
