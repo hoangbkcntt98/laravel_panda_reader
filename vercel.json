@@ -14,6 +14,7 @@
         "APP_ENV": "production",
         "APP_DEBUG": "true",
         "APP_URL": "https://panda-reader.vercel.app",
+        "APP_KEY":"base64:p28Axreqr6+RlhtZTGiK+M3e7GXh7sEf+kEt5nMmTwM=",
         "GOOGLE_SECRET": "/google_secret.json",
         "VOCAB_SHEET_ID": "1HCRSHPW33MdavcumDIay-iDQkZzxnF047i829mUGJ7I",
         "KANJI_SHEET_ID": "12kWIq1HugC6crzjaKoVzANnLVyHGB65DawYolSZetXs",
