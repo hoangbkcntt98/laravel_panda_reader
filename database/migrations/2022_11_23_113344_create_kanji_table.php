@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('kanji', function (Blueprint $table) {
             $table->id();
-            $table->string('no')->nullable();
+            $table->integer('no')->nullable();
             $table->string('level')->nullable();
             $table->string('chapter_no')->nullable();
             $table->string('chapter_name')->nullable();

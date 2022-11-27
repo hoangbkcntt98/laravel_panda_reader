@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('word_formation', function (Blueprint $table) {
             $table->id();
-            $table->string('no')->nullable();
+            $table->integer('no')->nullable();
             $table->string('chapter_name')->nullable();
             $table->string('topic_name')->nullable();
             $table->string('word')->nullable();

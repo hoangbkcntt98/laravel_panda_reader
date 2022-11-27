@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('grammar', function (Blueprint $table) {
             $table->id();
-            $table->string('no')->nullable();
+            $table->integer('no')->nullable();
             $table->string('word')->nullable();
             $table->string('sentence')->nullable();
             $table->string('meaning')->nullable();

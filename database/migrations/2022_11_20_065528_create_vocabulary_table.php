@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('vocabulary', function (Blueprint $table) {
             $table->id();
-            $table->string('no');
+            $table->integer('no');
             $table->string('chapter_no')->nullable();
             $table->string('chapter_name')->nullable();
             $table->string('word')->nullable();
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vocabularies');
+        Schema::dropIfExists('vocabulary');
     }
 };
