@@ -42,4 +42,12 @@ class Vocabulary extends Model
         'sentence' => 6,
         'related_kanji' => 7,
     ];
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'no' => 'integer',
+    ];
 }

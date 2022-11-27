@@ -56,4 +56,12 @@ class Kanji extends Model
         'practive' => 11,
         'homonym' => 13,
     ];
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'no' => 'integer',
+    ];
 }
