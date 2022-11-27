@@ -1,6 +1,6 @@
 {{-- Custom --}}
 @php
-    $options = $collection->pluck('no')->toArray();
+    $options = $collection->sortBy('no')->pluck('no')->toArray();
     $min = [0];
     $max = [count($options)-1];
 @endphp

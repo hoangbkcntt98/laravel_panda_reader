@@ -62,7 +62,7 @@ class MakeHTMLController extends Controller
             $query->where('no', ">", intval($from));
         }
         if($to){
-            $query->where('no', "<=", intval($to));
+            $query->where('no', "<=", intval($to)+1);
         }
         if($from && $to){
             if($from > $to)
@@ -70,6 +70,7 @@ class MakeHTMLController extends Controller
                 return 'Invalid Value: From > To';
             }
         }
+        $query->orderBy('no');
         $items = $query->get();
         $display_columns = $model::getTableColumns();
         foreach ($items as $item) {
