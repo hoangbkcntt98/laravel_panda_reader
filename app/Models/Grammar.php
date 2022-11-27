@@ -44,12 +44,5 @@ class Grammar extends Model
         'related_grammar' => 7,
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'no' => 'integer',
-    ];
+
 }

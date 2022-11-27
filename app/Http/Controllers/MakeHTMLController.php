@@ -59,10 +59,10 @@ class MakeHTMLController extends Controller
         $from = $request->get('from');
         $to = $request->get('to');
         if($from){
-            $query->where('no', ">", intval($from));
+            $query->where('no', ">=", intval($from));
         }
         if($to){
-            $query->where('no', "<=", intval($to)+1);
+            $query->where('no', "<=", intval($to));
         }
         if($from && $to){
             if($from > $to)
