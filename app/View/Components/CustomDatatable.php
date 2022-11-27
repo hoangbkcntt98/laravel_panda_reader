@@ -277,6 +277,16 @@ class CustomDatatable extends Component
             ]
         ];
 
+        $pptBtn = [
+            // 'extend' => 'test',
+            'className' => 'btn-default buttons-csv buttons-html5',
+            'text' => '<i class="fas fa-fw fa-lg fa-file-powerpoint text-danger"></i>',
+            'titleAttr' => 'Export to Power Point',
+            'attr' => [
+                'onclick'=>"window.open('https://www.ilovepdf.com/pdf_to_powerpoint','_blank')"
+            ]
+        ];
+
         // The length change button should not be added if the configuration of
         // datatables explicitly disable it.
 
