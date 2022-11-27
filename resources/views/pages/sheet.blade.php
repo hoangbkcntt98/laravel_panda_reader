@@ -22,28 +22,14 @@
         <div class="card-header">
             <x-adminlte-button class="btn-md" onclick="window.location='{{ route($route . '.sync') }}'" label="Sync"
                 theme="outline-primary" icon="fas fa-lg fa-sync" />
+                
+            @include('components.custom-modal', [
+                'data' => $config['data']
+            ])
         </div>
         <div class="card-body {{ $route }}_table">
-
-            {{-- Minimal example / fill data using the component slot --}}
-            @if (!$use_config)
-                <x-adminlte-datatable id="table1" :heads="$heads" :config="$config" striped hoverable bordered
-                    with-buttons>
-                    @foreach ($config['data'] as $row)
-                        <tr>
-                            @foreach ($row as $cell)
-                                <td><span>{!! nl2br($cell) !!}</span></td>
-                            @endforeach
-                        </tr>
-                    @endforeach
-                </x-adminlte-datatable>
-            @else
-                <x-custom-datatable id="sheet_table" :heads="$heads" :config="$config" :filename="$route" striped hoverable with-buttons
-                bordered scrollable  />
-            @endif
-
-
-
+            <x-custom-datatable id="sheet_table" :heads="$heads" :config="$config" :filename="$route" striped hoverable
+                with-buttons bordered scrollable />
         </div>
     </div>
 @endsection
@@ -52,11 +38,15 @@
         function makeHTML(filename) {
             var inputData = @json($raw_data);
             var route = @json($route);
+            var from = $('#'+route+"_form :input[name='from']").val();
+            var to = $('#'+route+"_form :input[name='to']").val();
+            var form = $('#'+route+"_form");
+            console.log(from)
             var html_url = @json(route('html.make', [
-                'route' => $route
-            ]));
-            window.open(html_url, "_blank")
-            console.log(route,inputData)
+                    'route' => $route,
+                ]));
+            window.open(html_url+'&from='+from+'&to='+to, "_blank")
+            console.log(route, inputData)
         }
     </script>
     {{-- <script src="/js/jquery.doubleScroll.js"></script> --}}

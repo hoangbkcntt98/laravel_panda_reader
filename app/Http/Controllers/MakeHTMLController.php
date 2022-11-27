@@ -55,8 +55,22 @@ class MakeHTMLController extends Controller
         $template = File::get($template);
         $body = '';
         $model = $this->getModel($material);
-        $items = $model::getQuery()->get();
-        // dump($items);
+        $query = $model::query();
+        $from = $request->get('from');
+        $to = $request->get('to');
+        if($from){
+            $query->where('no', ">", intval($from));
+        }
+        if($to){
+            $query->where('no', "<=", intval($to));
+        }
+        if($from && $to){
+            if($from > $to)
+            {
+                return 'Invalid Value: From > To';
+            }
+        }
+        $items = $query->get();
         $display_columns = $model::getTableColumns();
         foreach ($items as $item) {
             $content = $template;

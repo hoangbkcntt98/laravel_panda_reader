@@ -270,7 +270,11 @@ class CustomDatatable extends Component
             'className' => 'btn-default buttons-csv buttons-html5',
             'text' => '<i class="fas fa-fw fa-lg fa-file-code"></i>',
             'titleAttr' => 'Export to HTML',
-            'attr' => ['onclick'=>"makeHTML('".$this->filename."')"]
+            'attr' => [
+                'data-toggle' => 'modal',
+                'data-target' => '#modalCustom'
+                // 'onclick'=>"makeHTML('".$this->filename."')"
+            ]
         ];
 
         // The length change button should not be added if the configuration of

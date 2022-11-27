@@ -17,10 +17,10 @@ class SheetController extends Controller
 
     public function index(Request $request)
     {
-        $data = $this->model::get($this->model::DISPLAY_COLUMNS);
+        $collection = $this->model::get($this->model::DISPLAY_COLUMNS);
         $data = array_map(function ($item) {
             return array_values($item);
-        }, $data->toArray());
+        }, $collection->toArray());
         $heads = $this->model::DISPLAY_COLUMNS;
         $heads = array_map(function ($item) {
             $trans = trans(sprintf("pages/%s.%s", $this->route, $item));
@@ -33,7 +33,8 @@ class SheetController extends Controller
             'heads' => $heads,
             'route' => $this->route,
             'use_config' => $this->use_config ?? true,
-            'raw_data' => $data
+            'raw_data' => $data,
+            'collection' => $collection
         ]);
     }
 
