@@ -78,6 +78,7 @@ class MakeHTMLController extends Controller
             if($item->no==0) continue;
             foreach ($display_columns as $column) {
                 $replace_text = $item->{$column};
+                if($column != 'kanji') $replace_text = '<span>' . nl2br($replace_text) . '</span>';
                 $need_replace = "{{{$column}}}";
             
                 if(Str::contains($content, $need_replace)){
