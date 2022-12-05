@@ -42,7 +42,7 @@ class SheetInfoSeeder extends Seeder
                 'route' => 'grammar'
             ],
             [
-                'sheet_id' => '1x9D-LfJQvWcmcqW3W6Xl7mVJy4dogGUITo_t0neGnSM',
+                'sheet_id' => '1XdPgMvNI1VJY4X9NXD4fMbmg6USx9KLkCz14FUWRNpg',
                 'sheet_name' => 'Dic',
                 'sheet_range' => 'A3:N1000',
                 'route' => 'kanji'
