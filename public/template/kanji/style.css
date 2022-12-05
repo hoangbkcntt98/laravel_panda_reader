@@ -18,6 +18,7 @@
     min-height: 500px;
     page-break-after: always;
     page-break-before: always;
+    height: 90vh;
 }
 
 .back_container .no_info,
