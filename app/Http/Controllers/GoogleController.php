@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Notification\ReadPermission;
+use App\Enums\Notification\Status;
+use App\Enums\Notification\Type;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Trait\GoogleExtension;
@@ -114,7 +117,14 @@ class GoogleController extends Controller
             'password' =>  'ilovepanda'
         ])) {
             $request->session()->regenerate();
-
+            $notificationService = app('service.notification');
+            $notificationService->create([
+                'content' =>  trans('notification.loggin_success', ['username' => $user->name]),
+                'user_id' => $user->id,
+                'status' => Status::UNREAD,
+                'type' => Type::AUTH,
+                'read_permission' => ReadPermission::USER
+            ]);
             return redirect()->intended('home');
         }
 
@@ -127,7 +137,7 @@ class GoogleController extends Controller
         return response()->json($token, 201);
     } // postLogin
 
-    
+
 
 
     /**
@@ -165,9 +175,4 @@ class GoogleController extends Controller
          */
         return response()->json($results, 200);
     }
-
-
-    
-
-    
 }

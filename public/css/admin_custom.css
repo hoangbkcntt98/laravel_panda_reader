@@ -1,7 +1,46 @@
-.grammar_table table{
+.grammar_table table {
     width: 150% !important;
 }
 
-.kanji_table table{
+.kanji_table table {
     width: 200% !important;
+}
+
+#panda_notification .dropdown-menu {
+    max-width: 400px !important;
+    width: 400px;
+}
+
+#panda_notification .dropdown-menu>.adminlte-dropdown-content {
+    max-height: 200px !important;
+    overflow-y: scroll !important;
+}
+
+.panda-dropdown-item {
+    display: block;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.panda-dropdown-item .icon {
+    width: 5%;
+    margin: 5px;
+    text-align: center;
+}
+
+.panda-dropdown-item .text {
+    width: 70%;
+    max-width: 70%;
+    overflow-wrap: break-word;
+    font-size: 0.8rem;
+    white-space: normal;
+}
+
+.panda-dropdown-item .time {
+    width: 20%;
+    font-size: 0.8em;
 }

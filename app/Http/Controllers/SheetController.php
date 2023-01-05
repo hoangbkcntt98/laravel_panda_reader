@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Notification\ReadPermission;
+use App\Enums\Notification\Status;
+use App\Enums\Notification\Type;
 use App\Models\SheetInfo;
 use Illuminate\Http\Request;
 use Google\Service\Sheets;
@@ -71,6 +74,18 @@ class SheetController extends Controller
             if (!$data['sentence'] && !$data['word']) continue;
             $this->model::create($data);
         }
+        $user = auth()->user();
+        $notiService = app('service.notification');
+        $notiService->create([
+            'content' =>  trans('notification.sync_success', [
+                'username' => $user->name,
+                'data_type' => trans('sheet_type.' . $this->route)
+            ]),
+            'user_id' => $user->id,
+            'status' => Status::UNREAD,
+            'type' => Type::SYNC,
+            'read_permission' => ReadPermission::USER
+        ]);
         return redirect(route($this->route));
     }
 }

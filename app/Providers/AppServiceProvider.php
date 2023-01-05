@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\Notification\NotificationService;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        App::bind('service.notification', function ($app){
+            return new NotificationService();
+        });
     }
 
     /**

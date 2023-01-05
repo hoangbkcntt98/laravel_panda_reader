@@ -6,6 +6,7 @@ use App\Http\Controllers\GrammarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KanjiController;
 use App\Http\Controllers\MakeHTMLController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SpreadsheetReaderController;
 use App\Http\Controllers\VocabularyController;
 use App\Http\Controllers\WordFormationController;
@@ -26,7 +27,7 @@ Route::get('/', function () {
     return redirect('home');
 });
 
-Route::middleware('auth')->get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('auth')->get('/home', [App\Http\Contro\llers\HomeController::class, 'index'])->name('home');
 
 Route::get('google/login', [GoogleController::class, 'getAuthUrl'])->name('auth.google');
 Route::get('auth/google/callback', [GoogleController::class, 'postLogin']);
@@ -52,4 +53,11 @@ Route::middleware('auth')->get('make_html', [MakeHTMLController::class, 'make'])
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get(
+    'notifications/get',
+    [NotificationController::class, 'get']
+)->name('notifications.get');
+
 
