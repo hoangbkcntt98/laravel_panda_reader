@@ -36,5 +36,38 @@ class NotificationController extends Controller
             'dropdown'    => $dropdownHtml,
         ];
     }
+
+    public function show(Request $request)
+    {
+        $notifications = $this->service->all();
+        $notifications = collect($notifications)->groupBy(function($item){
+            return Carbon::parse($item->created_at)->format('Y/m/d');
+        });
+        return view('pages.notifications.show' ,[   
+            'groupByDayNotifications' => $notifications
+        ]);
+    }
+
+    public function read(Request $request, $id)
+    {
+        $notification = $this->service->getNotification($id);
+        $this->service->marked($id);
+        return view('pages.notifications.read', [
+            'noti' => $notification
+        ]);
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $this->service->delete($id);
+        return redirect()->back();
+    }
+
+    public function marked(Request $request, $id)
+    {
+        $this->service->marked($id);
+        return redirect()->back();
+    }
+
     
 }

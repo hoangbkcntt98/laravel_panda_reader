@@ -61,3 +61,24 @@ Route::get(
 )->name('notifications.get');
 
 
+Route::get(
+    'notifications/read/{id}',
+    [NotificationController::class, 'read']
+)->name('notifications.read');
+
+Route::get(
+    'notifications/delete/{id}',
+    [NotificationController::class, 'delete']
+)->name('notifications.delete');
+
+Route::get(
+    'notifications/marked/{id}',
+    [NotificationController::class, 'marked']
+)->name('notifications.marked');
+
+Route::get(
+    'notifications/show',
+    [NotificationController::class, 'show']
+)->name('notifications.show');
+
+
