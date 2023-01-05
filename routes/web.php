@@ -28,8 +28,8 @@ Route::get('/', function () {
 
 Route::middleware('auth')->get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('google/login', '\App\Http\Controllers\GoogleController@getAuthUrl')->name('auth.google');
-Route::get('auth/google/callback', '\App\Http\Controllers\GoogleController@postLogin');
+Route::get('google/login', [GoogleController::class, 'getAuthUrl'])->name('auth.google');
+Route::get('auth/google/callback', [GoogleController::class, 'postLogin']);
 
 Route::middleware('auth')->get('vocabulary', [VocabularyController::class, 'index'])->name('vocabulary');
 Route::middleware('auth')->get('vocabulary_sync', [VocabularyController::class, 'sync'])->name('vocabulary.sync');
@@ -52,3 +52,4 @@ Route::middleware('auth')->get('make_html', [MakeHTMLController::class, 'make'])
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

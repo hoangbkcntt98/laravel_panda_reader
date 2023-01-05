@@ -71,8 +71,7 @@ trait GoogleExtension{
                 \Google\Service\Oauth2::USERINFO_PROFILE,
                 \Google\Service\Oauth2::USERINFO_EMAIL,
                 \Google\Service\Oauth2::OPENID,
-                \Google\Service\Drive::DRIVE_METADATA_READONLY,
-                \Google\Service\Sheets::SPREADSHEETS
+                \Google\Service\Sheets::SPREADSHEETS_READONLY
             ]
         );
         $client->setIncludeGrantedScopes(true);
