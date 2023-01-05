@@ -31,7 +31,7 @@
                                 {{ $noti->content }}
                             </div>
                             <div class="timeline-footer">
-                                <a class="btn btn-danger btn-sm" href="/notifications/delete/{{$noti->id}}">Delete</a>
+                                
                             </div>
                         </div>
                     </div>
