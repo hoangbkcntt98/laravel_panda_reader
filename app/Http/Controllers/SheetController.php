@@ -31,13 +31,16 @@ class SheetController extends Controller
         }, $heads);
         $fomatted_data = $this->formatData($data);
         $config = $this->sheetConfiguartions($fomatted_data);
+        $sheet_info = SheetInfo::where('route', $this->route)->first();
+        $sheetUrl = 'https://docs.google.com/spreadsheets/d/'.$sheet_info->sheet_id;
         return view("pages.sheet", [
             'config' => $config,
             'heads' => $heads,
             'route' => $this->route,
-            'use_config' => $this->use_config ?? true,
+            'use_config' => true,
             'raw_data' => $data,
-            'collection' => $collection
+            'collection' => $collection,
+            'sheet_url' => $sheetUrl
         ]);
     }
 

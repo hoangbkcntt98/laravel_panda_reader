@@ -21,6 +21,8 @@
         <div class="card-header">
             <x-adminlte-button class="btn-md" onclick="window.location='{{ route($route . '.sync') }}'" label="Sync"
                 theme="outline-primary" icon="fas fa-lg fa-sync" />
+            <x-adminlte-button class="btn-md" onclick="window.open('{{$sheet_url}}')" label="SpreadSheet"
+            theme="outline-primary" icon="fas fa-lg fa-file-excel" />
 
             @include('components.custom-modal', [
                 'data' => $config['data'],
