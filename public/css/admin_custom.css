@@ -44,3 +44,23 @@
     width: 18%;
     font-size: 0.8em;
 }
+
+.panda-material-item {
+    opacity: 1;
+    transform: scale(1) translate3d(0px, 0px, 0px);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    /* position: absolute; */
+    width: 106.5px;
+    transition: all 0.5s ease-out 0ms, width 1ms ease 0s;
+    padding: 2px;
+    border-radius: 2px;
+    box-shadow: 1px -1px 7px 6px rgba(0, 0, 0, 0.07);
+    -webkit-box-shadow: 1px -1px 7px 6px rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 1px -1px 7px 6px rgba(0, 0, 0, 0.07);
+}
+
+.panda-material-item:hover{
+    transform: scale(1.1);
+}

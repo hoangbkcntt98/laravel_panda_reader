@@ -1,13 +1,14 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdverbController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\GrammarController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KanjiController;
 use App\Http\Controllers\MakeHTMLController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\SpreadsheetReaderController;
 use App\Http\Controllers\VocabularyController;
 use App\Http\Controllers\WordFormationController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+// Notifications
 Route::get(
     'notifications/get',
     [NotificationController::class, 'get']
@@ -81,4 +83,30 @@ Route::get(
     [NotificationController::class, 'show']
 )->name('notifications.show');
 
+Route::get(
+    'profile/{id}',
+    [AccountController::class, 'profile']
+);
 
+// Documents
+
+Route::get(
+    'documents',
+    [DocumentController::class, 'index']
+);
+
+//Materials
+
+Route::get(
+    'materials/{id}',
+    [MaterialController::class, 'get']
+);
+Route::get(
+    'materials/{id}/sync',
+    [MaterialController::class, 'sync']
+);
+
+Route::get(
+    'material/{id}/make_html',
+    [MaterialController::class, 'makeHtml']
+);

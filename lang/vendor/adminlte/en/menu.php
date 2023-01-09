@@ -28,5 +28,6 @@ return [
     'n1'                            => 'JLPT N1',
     'toeic'                         => 'TOEIC',
     'sheet_setting'                 => 'SHEET SETTINGS',
-    'account_setting'               => 'ACCOUNT_SETTING'
+    'account_setting'               => 'ACCOUNT_SETTING',
+    'document'                      => 'DOCUMENTS'
 ];

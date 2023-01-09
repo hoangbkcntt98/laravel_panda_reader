@@ -5,5 +5,7 @@ return [
     'adverb' => "Adverb",
     'word_formation' => "Word Formation",
     'grammar' => 'Grammar',
-    'home' => 'Home'
+    'home' => 'Home',
+    'document' => 'Document',
+    'material' => 'Material'
 ];

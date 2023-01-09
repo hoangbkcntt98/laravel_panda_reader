@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Enums\Notification\ReadPermission;
 use App\Enums\Notification\Status;
 use App\Enums\Notification\Type;
+use App\Enums\User\PermissionLevel;
+use App\Enums\User\Role;
+use App\Models\Account;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Trait\GoogleExtension;
@@ -100,7 +103,16 @@ class GoogleController extends Controller
                 'google_access_token_json' => json_encode($accessToken),
                 'name' => $userFromGoogle->name,
                 'email' => $userFromGoogle->email,
-                'password' => bcrypt('ilovepanda')
+                'password' => bcrypt('ilovepanda'),
+                
+            ]);
+
+            $account = Account::create([
+                'user_id' => $user->id,
+                'avatar' => $userFromGoogle->picture,
+                'role' => Role::LEARNER,
+                'permission_level' => PermissionLevel::LEARNER,
+                'note' => ''
             ]);
         }
         /**
