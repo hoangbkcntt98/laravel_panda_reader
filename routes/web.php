@@ -53,7 +53,7 @@ Route::middleware('auth')->get('make_html', [MakeHTMLController::class, 'make'])
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('auth')->get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 // Notifications
