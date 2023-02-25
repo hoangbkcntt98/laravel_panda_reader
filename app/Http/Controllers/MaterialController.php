@@ -6,14 +6,13 @@ use App\Models\Material;
 use App\Trait\GoogleExtension;
 use Illuminate\Http\Request;
 use Google\Service\Sheets;
-use Illuminate\Support\Arr;
 use App\Enums\Notification\Status;
 use App\Enums\Notification\Type;
 use App\Enums\Notification\ReadPermission;
 use App\Models\DataFormation;
 use App\Models\DataFormationColumn;
+use App\Models\Document;
 use App\Trait\ModelUtil;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class MaterialController extends Controller
@@ -26,9 +25,10 @@ class MaterialController extends Controller
         $dataFormationColumn = DataFormationColumn::where(
             [
                 'material_id' => $id,
-                'is_skipped' => 0
+                'is_skipped' => 0,
+                'is_custom' => 0
             ]
-        )->first();
+        )->get();
         $data = $this->getMaterialData($id);
         $heads = $dataFormationColumn->pluck('column_name')->toArray();
         $fomatted_data = $this->formatData($data);
@@ -57,6 +57,15 @@ class MaterialController extends Controller
         return $data;
     }
 
+    /**
+     * 
+     * Sync data from google sheet
+     * 
+     * @param Request $request
+     * @param mixed $id
+     * 
+     * @return 
+     */
     public function sync(Request $request, $id)
     {
         $client = $this->getUserClient();
@@ -78,8 +87,7 @@ class MaterialController extends Controller
         DataFormation::where('material_id', $id)->whereNotNull('id')->delete();
 
         foreach ($sheet_data as $i => $row) {
-            foreach($dataColumns as $column)
-            {
+            foreach ($dataColumns as $column) {
                 $value = $row[$column] ?? '';
                 DataFormation::create([
                     'row' => $i,
@@ -111,7 +119,7 @@ class MaterialController extends Controller
     {
         $configuations = [
             'data' => $data,
-            'columns' => [null, null, null, ['width' => '100px'], null, null, null,  ['width' => '100px']],
+            'columns' => [null, null, null, ['width' => '100px'], null, null],
             'order' => [
                 [0, 'desc']
             ]
@@ -121,42 +129,49 @@ class MaterialController extends Controller
     }
 
 
-    public function makeHTML(Request $request)
+    public function makeHTML(Request $request, $id)
     {
-        $type = $request->get('mat_type');
-        $model = $this->getMaterialModel($type);
-        $query = $model::query();
+        $materialId = $id;
+        $material = Material::where('id', $id)->first();
 
+        $style = $material->css;
+        $template = $material->html;
+        $from = $request->get('from') ?? 0;
+        $to = $request->get('to') ?? 100000;
+        $data = $this->getMaterialData($materialId);
 
-        $material = $request->get('route');
-        $style = sprintf('template/%s/style.css', $material);
-        $template = sprintf('template/%s/template.html', $material);
-        $template = File::get($template);
+        $orderColumn = $this->getColumnByKey('No', $materialId);
+
+        $data = collect($data);
         $body = '';
 
-        $from = $request->get('from');
-        $to = $request->get('to');
-        if ($from) {
-            $query->where('no', ">=", intval($from));
-        }
-        if ($to) {
-            $query->where('no', "<=", intval($to));
-        }
+        $data = $data->filter(function ($item) use ($orderColumn, $from, $to) {
+            $val = $item[$orderColumn];
+            return $val >= intval($from) && $val <= $to;
+        });
+
         if ($from && $to) {
             if ($from > $to) {
                 return 'Invalid Value: From > To';
             }
         }
-        $query->orderBy('no');
-        $items = $query->get();
-        $display_columns = $model::getTableColumns();
-        foreach ($items as $item) {
+
+        $dataFormationColumn = DataFormationColumn::where(
+            [
+                'material_id' => $id,
+                'is_skipped' => 0
+            ]
+        )->get();
+        // dd($dataFormationColumn);
+
+        foreach ($data as $item) {
             $content = $template;
-            if ($item->no == 0) continue;
-            foreach ($display_columns as $column) {
-                $replace_text = $item->{$column};
-                if ($column != 'kanji') $replace_text = '<span>' . nl2br($replace_text) . '</span>';
-                $need_replace = "{{{$column}}}";
+            // if ($item[intval($this->getColumnByKey('No'))] == 0) continue;
+            foreach ($dataFormationColumn as $column) {
+                // dd($column->column);
+                $replace_text = $item[$column->column];
+                if ($column->name != 'Kanji') $replace_text = '<span>' . nl2br($replace_text) . '</span>';
+                $need_replace = "{{{$column->column_name}}}";
 
                 if (Str::contains($content, $need_replace)) {
                     $content = Str::replace($need_replace, $replace_text, $content);
@@ -168,5 +183,53 @@ class MaterialController extends Controller
             'body' => $body,
             'style' => $style
         ]);
+    }
+
+    public function create(Request $request)
+    {
+        $documents = Document::all();
+        return view('pages.material.create', [
+            'documents' => $documents
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $sheetId = $request->get('sheet_id');
+        $sheetName = $request->get('sheet_name');
+        $sheetRange = $request->get('sheet_range');
+        $documentId = $request->get('document_id');
+
+        $html = $request->get('html') ?? '';
+        $css = $request->get('css') ?? '';
+
+
+        $columnName = $request->get('column_name');
+        $skipped = $request->get('skipped');
+        $columnNo = $request->get('column');
+        $custom = $request->get('custom');
+
+        $material = Material::create([
+            'document_id' => $documentId,
+            'sheet_id' => $sheetId,
+            'sheet_name' => $sheetName,
+            'sheet_range' => $sheetRange,
+            'html' => $html,
+            'css' => $css
+        ]);
+
+        for ($i = 0; $i < count($columnNo); $i++) {
+            $rowData = [
+                'material_id' => $material->id,
+                'column' => $columnNo[$i],
+                'column_name' => $columnName[$i],
+                'is_skipped' => $skipped[$i],
+                'is_custom' => $custom[$i]
+            ];
+            DataFormationColumn::create($rowData);
+        }
+
+
+        return redirect(route('documents.index'));
     }
 }

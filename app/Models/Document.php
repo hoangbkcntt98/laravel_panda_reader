@@ -9,6 +9,12 @@ class Document extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'owner_id',
+        'topic',
+        'image'
+    ];
+
     public function materials()
     {
         return $this->hasMany(Material::class, 'document_id');

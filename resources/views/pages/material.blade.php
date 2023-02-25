@@ -30,7 +30,7 @@
             <x-adminlte-button class="btn-md" onclick="window.open('{{$sheet_url}}')" label="SpreadSheet"
             theme="outline-primary" icon="fas fa-lg fa-file-excel" />
 
-            @include('components.custom-modal', [
+            @include('pages.material.make_html_config', [
                 'data' => $config['data'],
             ])
         </div>
@@ -44,13 +44,14 @@
     <script>
         function makeHTML(filename) {
             var inputData = @json($raw_data);
-            var route = @json($route);
-            var from = $('#' + route + "_form :input[name='from']").val();
-            var to = $('#' + route + "_form :input[name='to']").val();
-            var html_url = @json(route('html.make', [
-                    'route' => $route,
+            var from = $("#makeHtmlForm :input[name='from']").val();
+            var to = $("#makeHtmlForm :input[name='to']").val();
+            var form = $('#makeHtmlForm').length;
+
+            var html_url = @json(route('materials.makeHtml', [
+                    'id' => $id,
                 ]));
-            window.open(html_url + '&from=' + from + '&to=' + to, "_blank")
+            window.open(html_url + '?from=' + from + '&to=' + to, "_blank")
         }
     </script>
 @stop

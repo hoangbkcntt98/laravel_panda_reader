@@ -61,6 +61,37 @@
     -moz-box-shadow: 1px -1px 7px 6px rgba(0, 0, 0, 0.07);
 }
 
-.panda-material-item:hover{
+.panda-material-item:hover {
     transform: scale(1.1);
+}
+
+.w-2 {
+    width: 20%;
+    padding: 2px;
+}
+.w-4 {
+    width: 40%;
+    padding: 2px;
+}
+
+.w-6 {
+    width: 60%;
+    padding: 2px;
+}
+
+.column-item {
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px;
+}
+
+#new-column-format {
+    display: none;
+}
+
+.flex-content-center{
+    display: flex;
+    justify-content: center;
 }

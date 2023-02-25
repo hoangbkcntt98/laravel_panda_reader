@@ -93,7 +93,23 @@ Route::get(
 Route::get(
     'documents',
     [DocumentController::class, 'index']
-);
+)->name('documents.index');
+
+
+Route::post(
+    'documents.store',
+    [DocumentController::class, 'store']
+)->name('documents.store');
+
+Route::get(
+    'documents/{id}/delete',
+    [DocumentController::class, 'delete']
+)->name('documents.delete');
+
+Route::post(
+    'documents/{id}/edit',
+    [DocumentController::class, 'edit']
+)->name('documents.edit');
 
 //Materials
 
@@ -107,6 +123,16 @@ Route::get(
 );
 
 Route::get(
-    'material/{id}/make_html',
+    'materials.create',
+    [MaterialController::class, 'create']
+)->name('materials.create');
+
+Route::post(
+    'materials.store',
+    [MaterialController::class, 'store']
+)->name('materials.store');
+
+Route::get(
+    'materials/{id}/make_html',
     [MaterialController::class, 'makeHtml']
-);
+)->name('materials.makeHtml');
